@@ -1,0 +1,15 @@
+.Results {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+}
+
+.ui.card.Results_Card {
+  margin-top: 50px;
+}
+
+.Results_BtnAdd {
+  padding: 20px;
+  font-size: 20px;
+}
