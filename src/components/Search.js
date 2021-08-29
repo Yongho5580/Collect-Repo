@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Results from "./Results";
 import axios from "axios";
-import { Form, Input, Button } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 import "../css/Search.css";
 
