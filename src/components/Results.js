@@ -10,10 +10,21 @@ const Results = ({ repos, isLoading }) => {
     console.log("im rendering");
   }, []);
 
+  // 레포지토리 추가 시 중복 검사하는 함수 (테스트용)
+  const isOverlap = (element) => {
+    if (element.id === 390230462) {
+      return true;
+    }
+  };
+
   const onAddClick = (e) => {
     e.preventDefault();
     const ok = window.confirm("해당 레포지토리를 추가하시겠습니까?");
     if (ok) {
+      if (arr.some(isOverlap)) {
+        window.confirm("중복되는 레포지토리가 있습니다.");
+        return;
+      }
       arr.push(repos);
       localStorage.setItem("repos", JSON.stringify(arr));
     } else {
@@ -21,16 +32,17 @@ const Results = ({ repos, isLoading }) => {
     }
   };
 
-  const getRepos = localStorage.getItem("repos");
+  const init = () => {
+    const getRepos = localStorage.getItem("repos");
+    if (getRepos !== null) {
+      const parsedRepos = JSON.parse(getRepos);
+      arr = parsedRepos;
+    }
+  };
 
-  if (getRepos !== null) {
-    const parsedRepos = JSON.parse(getRepos);
-    arr = parsedRepos;
-    console.log(parsedRepos);
-    console.log(arr);
-  }
+  init();
 
-  console.log(repos);
+  console.log(arr);
 
   return (
     <>
