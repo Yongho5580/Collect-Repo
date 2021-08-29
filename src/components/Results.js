@@ -1,14 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Card, Icon, Image } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 import "../css/Results.css";
 
 const Results = ({ repos, isLoading }) => {
+  let arr = [];
+
+  useEffect(() => {
+    console.log("im rendering");
+  }, []);
+
+  const onAddClick = (e) => {
+    e.preventDefault();
+    const ok = window.confirm("해당 레포지토리를 추가하시겠습니까?");
+    if (ok) {
+      arr.push(repos);
+      localStorage.setItem("repos", JSON.stringify(arr));
+    } else {
+      return;
+    }
+  };
+
+  const getRepos = localStorage.getItem("repos");
+
+  if (getRepos !== null) {
+    const parsedRepos = JSON.parse(getRepos);
+    arr = parsedRepos;
+    console.log(parsedRepos);
+    console.log(arr);
+  }
+
+  console.log(repos);
+
   return (
     <>
       {isLoading ? (
-        <div className="Results">Loading...</div>
-      ) : (
         <div className="Results">
           <div className="Results_Info">
             <Card className="Results_Card">
@@ -46,9 +72,11 @@ const Results = ({ repos, isLoading }) => {
             </Card>
           </div>
           <div className="Results_BtnAdd">
-            <button>추가하기</button>
+            <button onClick={onAddClick}>추가하기</button>
           </div>
         </div>
+      ) : (
+        <></>
       )}
     </>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Results from "./Results";
 import axios from "axios";
 import { Form, Input, Button } from "semantic-ui-react";
@@ -8,8 +8,12 @@ import "../css/Search.css";
 const SearchBar = () => {
   const [repoInput, setRepoInput] = useState("");
   const [nameInput, setNameInput] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [repos, setRepos] = useState([]);
+
+  useEffect(() => {
+    console.log("Search comp is rendering");
+  });
 
   const onNameChange = (e) => {
     setNameInput(e.target.value);
@@ -31,14 +35,12 @@ const SearchBar = () => {
     } catch (error) {
       console.log(error);
     }
-    setIsLoading(false);
+    setIsLoading(true);
   };
-  console.log(repos);
-  console.log(isLoading);
   return (
     <>
-      <div className="SearchBar">
-        <div className="SearchBar_Items">
+      <div className="Search">
+        <div className="Search_Items">
           <form onSubmit={onSubmit}>
             <input
               type="text"
