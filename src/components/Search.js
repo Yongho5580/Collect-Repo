@@ -32,7 +32,7 @@ const SearchBar = () => {
       );
       setRepos(items);
     } catch (error) {
-      console.log(error);
+      window.confirm("존재하지 않는 유저입니다.");
     }
     setIsLoading(true);
   };
