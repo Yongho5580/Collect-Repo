@@ -12,13 +12,18 @@
   color: #fff;
 }
 
-.ui.card.Results_Card {
+.ui.card.Cards_Card {
   margin-top: 50px;
 }
 
-.Results_BtnAdd {
+.Cards_BtnAdd {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding: 20px;
-  font-size: 20px;
 }
 
 .Results_Introduce {

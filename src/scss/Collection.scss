@@ -1,0 +1,15 @@
+.Collections {
+    height: 100vh;
+  overflow: auto;
+  background-color: #0d1117;
+}
+
+.Collections_Lists {
+  display: flex;
+  flex-direction: column;
+}
+
+.Collections_List {
+  display: flex;
+  justify-content: space-between;
+}
