@@ -11,7 +11,7 @@ const Results = ({ repos, issues, isLoading }) => {
 
   // 레포지토리 추가 시 중복 검사하는 함수
   const isOverlap = (element) => {
-    return Boolean(arr.find((item) => item.id === element));
+    return Boolean(arr.find((item) => item[0].id === element));
   };
 
   // 로컬스토리지에 해당 레포지토리 정보를 저장하는 함수
@@ -25,12 +25,13 @@ const Results = ({ repos, issues, isLoading }) => {
         return;
       }
       // 중복 검사
-      if (isOverlap(repos.id)) {
+      if (isOverlap(repos[0].id)) {
         window.confirm("중복되는 레포지토리가 있습니다.");
         return;
       }
       // 로컬스토리지에 추가
-      arr.push(repos);
+      const concat = repos.concat(issues);
+      arr.push(concat);
       localStorage.setItem("repos", JSON.stringify(arr));
       window.confirm("레포지토리를 추가했습니다.");
     } else {
@@ -43,8 +44,6 @@ const Results = ({ repos, issues, isLoading }) => {
   if (getRepos !== null) {
     arr = getRepos;
   }
-
-  console.log(issues);
 
   return (
     <>
@@ -59,22 +58,22 @@ const Results = ({ repos, issues, isLoading }) => {
         </div>
       )}
       {isLoading &&
-        repos === undefined &&
+        repos[0] === undefined &&
         window.alert(
           "유저는 존재하나, 해당 레포지토리는 존재하지 않습니다. 오타가 있는지 확인해주세요."
         )}
-      {isLoading && repos && (
+      {isLoading && repos[0] && (
         <div className="Results">
           <Cards
-            avatar={repos.owner.avatar_url}
-            name={repos.name}
-            user={repos.owner.login}
-            description={repos.description}
-            forks={repos.forks}
-            watchers={repos.watchers}
-            language={repos.language}
-            url={repos.html_url}
-            issues={repos.open_issues}
+            avatar={repos[0].owner.avatar_url}
+            name={repos[0].name}
+            user={repos[0].owner.login}
+            description={repos[0].description}
+            forks={repos[0].forks}
+            watchers={repos[0].watchers}
+            language={repos[0].language}
+            url={repos[0].html_url}
+            issues={repos[0].open_issues}
           />
           <div className="Cards_BtnAdd">
             <Button onClick={onAddClick} color="grey">

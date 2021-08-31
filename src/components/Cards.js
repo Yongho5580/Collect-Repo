@@ -54,12 +54,12 @@ const Cards = ({
           <Card.Content extra>
             <a href={url || "#"} target="_blank" rel="noreferrer">
               <Icon name="tag" />
-              레포지토리로 이동하기
+              해당 레포지토리로 이동하기
             </a>
           </Card.Content>
           <Card.Content extra>
             <a target="_blank" rel="noreferrer">
-              <Icon name="exclamation circle" />총 {issues === [] ? 0 : issues}
+              <Icon name="exclamation circle" />총 {issues ? issues : 0}
               개의 이슈가 있습니다.
             </a>
           </Card.Content>

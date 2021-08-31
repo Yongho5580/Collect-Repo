@@ -35,7 +35,6 @@ const SearchBar = () => {
         `https://api.github.com/repos/${nameInput}/${repoInput}/issues`
       );
       items.push(issues);
-      console.log(items);
       setRepos(items);
     } catch (error) {
       // 에러 핸들링
@@ -77,7 +76,7 @@ const SearchBar = () => {
           </form>
         </div>
       </div>
-      <Results repos={repos[0]} issues={repos[1]} isLoading={isLoading} />
+      <Results repos={[repos[0]]} issues={[repos[1]]} isLoading={isLoading} />
     </>
   );
 };
