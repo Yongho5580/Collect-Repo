@@ -5,23 +5,18 @@
 }
 
 .Collections_Lists {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  place-items: center;
 }
 
-.Collections_List {
+.Collections_Btns {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  border-bottom: 2px solid;
-  border-bottom-color: #30363e;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-top: 20px;
 }

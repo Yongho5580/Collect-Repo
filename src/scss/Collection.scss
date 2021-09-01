@@ -5,13 +5,13 @@
 }
 
 .Collections_Lists {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
 }
 
-.Collections_List {
+.Collections_Btns {
   display: flex;
-  flex-direction: row;
-  border-bottom: 2px solid;
-  border-bottom-color: #30363e;
+  justify-content: space-around;
+  margin-top: 20px;
 }

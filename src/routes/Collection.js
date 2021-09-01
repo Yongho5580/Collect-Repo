@@ -3,19 +3,27 @@ import { Button } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 import { Link } from "react-router-dom";
 import "../css/Collection.css";
-import { Mdclose } from "react-icons/md";
 import Cards from "../components/Cards";
 import { AiOutlineHome } from "react-icons/ai";
 import Pagination from "../components/Pagination";
+import Modal from "../components/Modal";
 
 const Collections = () => {
   const [update, setUpdate] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [issueId, setIssueId] = useState();
 
   let arr = [];
   const getRepos = JSON.parse(localStorage.getItem("repos"));
   if (getRepos !== null) {
     arr = getRepos;
   }
+
+  const openModal = (e) => {
+    const cardId = e.target.id;
+    setIssueId(cardId);
+    setShowModal((prev) => !prev);
+  };
 
   // 선택한 레포지토리를 삭제하는 함수
   const onDeleteClick = (e) => {
@@ -54,13 +62,15 @@ const Collections = () => {
                     url={repos[0].html_url}
                     issues={repos[0].open_issues}
                   />
-                  <div className="Collections_BtnDelete">
+                  <div className="Collections_Btns">
+                    <Button id={repos[0].id} onClick={openModal}>
+                      이슈보기
+                    </Button>
                     <Button id={repos[0].id} onClick={onDeleteClick} negative>
                       삭제하기
                     </Button>
                   </div>
                 </div>
-                <Pagination data={repos[1].data} />
               </div>
             );
           })
@@ -68,6 +78,11 @@ const Collections = () => {
           <>theres no repo</>
         )}
       </div>
+      <Modal
+        issueId={issueId}
+        showModal={showModal}
+        setShowModal={setShowModal}
+      />
     </div>
   );
 };

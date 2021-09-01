@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, Icon, Image } from "semantic-ui-react";
 import "../css/Cards.css";
+import matthew from "../images/matthew.png";
 
 const Cards = ({
   avatar,
@@ -17,14 +18,7 @@ const Cards = ({
     <>
       <div className="Cards_Info">
         <Card className="Cards_Card">
-          <Image
-            src={
-              avatar ||
-              "https://react.semantic-ui.com/images/avatar/large/matthew.png"
-            }
-            wrapped
-            ui={false}
-          />
+          <Image src={avatar || matthew} wrapped ui={false} />
           <Card.Content>
             <Card.Header>{name || "Name of Repository"}</Card.Header>
             <Card.Meta>
@@ -40,11 +34,11 @@ const Cards = ({
           >
             <a>
               <Icon name="fork" />
-              {forks || "5"}
+              {forks || "0"}
             </a>
             <a>
               <Icon name="eye" />
-              {watchers || "3"}
+              {watchers || "0"}
             </a>
             <a>
               <Icon name="language" />
@@ -52,7 +46,7 @@ const Cards = ({
             </a>
           </Card.Content>
           <Card.Content extra>
-            <a href={url || "#"} target="_blank" rel="noreferrer">
+            <a href={url || null} target="_blank" rel="noreferrer">
               <Icon name="tag" />
               해당 레포지토리로 이동하기
             </a>

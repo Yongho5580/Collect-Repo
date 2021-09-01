@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ReactPaginate from "react-paginate";
 import "../css/Pagination.css";
+import { VscIssueClosed, VscIssues } from "react-icons/vsc";
 
 const Pagination = ({ data }) => {
   const [pageNumber, setPageNumber] = useState(0);
@@ -13,13 +14,31 @@ const Pagination = ({ data }) => {
     .map((el) => {
       return (
         <div className="Issue" key={el.id}>
-          <div>이슈 제목은 {el.title}</div>
-          <div>issue 상황은 {el.state}</div>
-          <div>
-            이슈 작성자 이름은 {el.user.login} 이슈 작성자 사진은{" "}
-            {el.user.avatar_url}
+          {el.state === "open" ? (
+            <span className="Issue_State">
+              <VscIssues style={{ color: "green" }} />
+            </span>
+          ) : (
+            <span className="Issue_State">
+              <VscIssueClosed style={{ color: "red" }} />
+            </span>
+          )}
+          <a
+            className="Issue_Anchor"
+            href={el.html_url}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {el.title}
+          </a>
+          <div className="Issue_UserInfo">
+            <img
+              className="Issue_UserImg"
+              src={el.user.avatar_url}
+              alt="user"
+            />
+            <div className="Issue_UserName">{el.user.login}</div>
           </div>
-          <div>주소는{el.html_url}</div>
         </div>
       );
     });

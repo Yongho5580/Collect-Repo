@@ -1,5 +1,49 @@
 .Issue {
-  color: #b1b8c0;
+  color: #24292f;
+  border: 1px solid;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  padding: 8px;
+  margin-bottom: 2px;
+}
+
+.Issue_Anchor {
+  font-size: 16px;
+  font-weight: 600 !important;
+  color: #24292f;
+}
+
+.Issue_Anchor:hover {
+  color: #4f95e5;
+}
+
+.Issue_State {
+  padding: 5px;
+}
+
+.Issue_UserInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.Issue_UserImg {
+  width: 5%;
+  border-radius: 70%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.Issue_UserName {
+  margin-left: 4px;
+  font-size: 15px;
+  margin-bottom: 4px;
 }
 
 .paginationBttns {
