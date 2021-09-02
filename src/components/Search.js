@@ -64,6 +64,8 @@ const SearchBar = () => {
         <div className="Search_Container">
           <form className="Search_Forms" onSubmit={onSubmit}>
             <input
+              data-aos="zoom-in"
+              data-aos-duration={500}
               className="Search_NameInput"
               type="text"
               placeholder="유저 이름을 입력하세요"
@@ -72,6 +74,9 @@ const SearchBar = () => {
               required
             />
             <input
+              data-aos="zoom-in"
+              data-aos-duration={500}
+              data-aos-delay={300}
               className="Search_RepoInput"
               type="text"
               placeholder="레포지토리를 입력하세요 "
@@ -79,7 +84,14 @@ const SearchBar = () => {
               value={repoInput}
               required
             />
-            <input className="Search_Submit" type="submit" value="검색" />
+            <input
+              data-aos="zoom-in"
+              data-aos-duration={500}
+              data-aos-delay={500}
+              className="Search_Submit"
+              type="submit"
+              value="검색"
+            />
           </form>
         </div>
       </div>

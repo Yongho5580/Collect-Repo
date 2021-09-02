@@ -53,7 +53,7 @@ const Results = ({ repos, issues, isLoading }) => {
   return (
     <>
       {!isLoading && (
-        <div data-aos="fade-up" data-aos-duration={800} className="Results">
+        <div data-aos="fade-up" data-aos-duration={1000} className="Results">
           <div className="Results_Info">
             <Cards />
           </div>
@@ -65,7 +65,7 @@ const Results = ({ repos, issues, isLoading }) => {
           "유저는 존재하나, 해당 레포지토리는 존재하지 않습니다. 오타가 있는지 확인해주세요."
         )}
       {isLoading && repos[0] && (
-        <div data-aos="fade-up" data-aos-duration={800} className="Results">
+        <div data-aos="fade-up" data-aos-duration={1000} className="Results">
           <Cards
             avatar={repos[0].owner.avatar_url}
             name={repos[0].name}

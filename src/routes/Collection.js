@@ -92,15 +92,14 @@ const Collections = () => {
         ) : (
           <></>
         )}
-        {getRepos ? (
-          <Modal
-            issueId={issueId}
-            showModal={showModal}
-            setShowModal={setShowModal}
-          />
-        ) : null}
       </div>
-
+      {getRepos ? (
+        <Modal
+          issueId={issueId}
+          showModal={showModal}
+          setShowModal={setShowModal}
+        />
+      ) : null}
       {getRepos === null || getRepos.length === 0 ? (
         <div className="ErrorPage">
           <span>Ooops.. 아직 레포지토리가 없습니다.</span>

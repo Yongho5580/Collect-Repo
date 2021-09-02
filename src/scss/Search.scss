@@ -18,13 +18,12 @@
 .Search_NameInput {
   flex-grow: 1;
   height: 40px;
-
   padding: clamp(1rem, 1.5vw, 1.5rem);
   color: #c5ccd4;
   border: 1px solid #30363e;
   border-radius: 6px;
   font-weight: 500;
-  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  font-size: clamp(0.9rem, 1.2vw, 1.2rem);
   margin: 0 0.1em 0 7px;
   background-color: #0d1117;
   text-align: center;
@@ -38,10 +37,10 @@
   border: 1px solid #30363e;
   border-radius: 6px;
   font-weight: 500;
+  font-size: clamp(0.9rem, 1.2vw, 1.2rem);
   margin: 0 0.1em 0 7px;
-  text-align: center;
-  font-size: clamp(1rem, 1.2vw, 1.2rem);
   background-color: #0d1117;
+  text-align: center;
 }
 
 .Search_Submit {
