@@ -9,6 +9,12 @@
   margin-bottom: 2px;
 }
 
+@media screen and (max-width: 768px) {
+  .Issue {
+    padding: 4px;
+  }
+}
+
 .Issue_Anchor {
   font-size: 16px;
   font-weight: 600 !important;
@@ -17,6 +23,12 @@
 
 .Issue_Anchor:hover {
   color: #4f95e5;
+}
+
+@media screen and (max-width: 768px) {
+  .Issue_Anchor {
+    font-size: 13px;
+  }
 }
 
 .Issue_State {
@@ -75,14 +87,16 @@
 }
 
 .paginationBttns a:hover {
-  color: white;
-  background-color: #2b2eff;
+  color: #fff;
+  background-color: #6495ed;
 }
 
 .paginationActive a {
+  color: #fff;
   background-color: #337ab7;
 }
 
 .paginationDisabled a {
   background-color: grey;
+  color: #fff;
 }

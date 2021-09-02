@@ -1,10 +1,11 @@
-import React, { useEffect, memo } from "react";
+import React, { memo } from "react";
 import "../css/Modal.css";
 import { MdClose } from "react-icons/md";
 import Pagination from "../components/Pagination";
 
 const Modal = ({ issueId, showModal, setShowModal }) => {
   const getRepos = JSON.parse(localStorage.getItem("repos"));
+
   const getIssues = getRepos.filter((el) => {
     return el[0].id === parseInt(issueId);
   });
@@ -22,7 +23,7 @@ const Modal = ({ issueId, showModal, setShowModal }) => {
               aria-label="Close Modal"
               onClick={() => setShowModal((prev) => !prev)}
             >
-              <MdClose />
+              <MdClose style={{ fontSize: "1.8rem" }} />
             </div>
           </div>
         </div>

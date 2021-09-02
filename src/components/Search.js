@@ -3,7 +3,8 @@ import Results from "./Results";
 import axios from "axios";
 import "semantic-ui-css/semantic.min.css";
 import "../css/Search.css";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 const SearchBar = () => {
   const [repoInput, setRepoInput] = useState("");
   const [nameInput, setNameInput] = useState("");
@@ -11,7 +12,7 @@ const SearchBar = () => {
   const [repos, setRepos] = useState([]);
 
   useEffect(() => {
-    console.log("Search comp is rendering");
+    AOS.init();
   });
 
   // 유저명 입력 받아오는 event
@@ -42,37 +43,43 @@ const SearchBar = () => {
         window.confirm(
           "해당 유저는 존재하지 않습니다. 오타가 있는지 다시 한 번 확인해주세요."
         );
+        return;
       }
       if (error.response.status === 404) {
         window.confirm(
           "해당 레포지토리는 존재하지 않습니다. 레포지토리명을 정확히 입력해주세요."
         );
+        return;
       }
     }
     // 비동기 과정이 모두 끝나면 loading이 되게 하는 state
+    setRepoInput("");
+    setNameInput("");
     setIsLoading(true);
   };
 
   return (
     <>
       <div className="Search">
-        <div className="Search_Items">
-          <form onSubmit={onSubmit}>
+        <div className="Search_Container">
+          <form className="Search_Forms" onSubmit={onSubmit}>
             <input
+              className="Search_NameInput"
               type="text"
-              placeholder="유저이름"
+              placeholder="유저 이름을 입력하세요"
               onChange={onNameChange}
               value={nameInput}
               required
             />
             <input
+              className="Search_RepoInput"
               type="text"
-              placeholder="레포지토리"
+              placeholder="레포지토리를 입력하세요 "
               onChange={onRepoChange}
               value={repoInput}
               required
             />
-            <input type="submit" value="검색"></input>
+            <input className="Search_Submit" type="submit" value="검색" />
           </form>
         </div>
       </div>
@@ -82,3 +89,25 @@ const SearchBar = () => {
 };
 
 export default SearchBar;
+
+/*
+ <form onSubmit={onSubmit}>
+            <input
+              className="Search_NameInput"
+              type="text"
+              placeholder="유저이름"
+              onChange={onNameChange}
+              value={nameInput}
+              required
+            />
+            <input
+              className="Search_RepoInput"
+              type="text"
+              placeholder="레포지토리"
+              onChange={onRepoChange}
+              value={repoInput}
+              required
+            />
+            <input type="submit" value="검색"></input>
+          </form>
+*/

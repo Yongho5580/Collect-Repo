@@ -2,16 +2,46 @@
   height: 100vh;
   overflow: auto;
   background-color: #0d1117;
+  color: #fff;
+}
+
+.Collections_Link {
+  padding: 20px;
+}
+
+.Collections_Icon {
+  font-size: clamp(2rem, 2vw, 3rem);
+  color: #fff;
+
+  &:hover {
+    color: #f2cc8f;
+  }
 }
 
 .Collections_Lists {
   display: grid;
   grid-template-columns: 1fr 1fr;
   place-items: center;
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .Collections_Btns {
   display: flex;
   justify-content: space-around;
   margin-top: 20px;
+}
+
+.ErrorPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(1.5rem, 3vw, 3rem);
+  height: 80vh;
+}
+
+.Collections_List {
+  margin-bottom: 20px;
 }

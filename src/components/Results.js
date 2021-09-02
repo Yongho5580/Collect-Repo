@@ -1,13 +1,18 @@
-import React, { memo } from "react";
+import React, { memo, useEffect } from "react";
 import { Button } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 import "../css/Results.css";
-import Error from "../images/error.gif";
 import Cards from "./Cards";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Results = ({ repos, issues, isLoading }) => {
   // 상위컴포넌트에서 input에 타이핑할 시 자식컴포넌트가 한 글자당 렌더링되는걸 확인.
   // React.memo를 사용함으로써 리렌더링 방지했음.
+
+  useEffect(() => {
+    AOS.init();
+  });
 
   // 레포지토리 추가 시 중복 검사하는 함수
   const isOverlap = (element) => {
@@ -48,11 +53,8 @@ const Results = ({ repos, issues, isLoading }) => {
   return (
     <>
       {!isLoading && (
-        <div className="Results">
+        <div data-aos="fade-up" data-aos-duration={800} className="Results">
           <div className="Results_Info">
-            <div className="Results_Introduce">
-              <h2>Pick! Repository</h2>
-            </div>
             <Cards />
           </div>
         </div>
@@ -63,7 +65,7 @@ const Results = ({ repos, issues, isLoading }) => {
           "유저는 존재하나, 해당 레포지토리는 존재하지 않습니다. 오타가 있는지 확인해주세요."
         )}
       {isLoading && repos[0] && (
-        <div className="Results">
+        <div data-aos="fade-up" data-aos-duration={800} className="Results">
           <Cards
             avatar={repos[0].owner.avatar_url}
             name={repos[0].name}

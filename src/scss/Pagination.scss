@@ -7,6 +7,10 @@
   border-bottom-left-radius: 6px;
   padding: 8px;
   margin-bottom: 2px;
+
+  @media screen and (max-width: 768px) {
+    padding: 4px;
+  }
 }
 
 .Issue_Anchor {
@@ -15,6 +19,9 @@
   color: #24292f;
   &:hover {
     color: #4f95e5;
+  }
+  @media screen and (max-width: 768px) {
+    font-size: 13px;
   }
 }
 
@@ -58,14 +65,16 @@
 }
 
 .paginationBttns a:hover {
-  color: white;
-  background-color: #2b2eff;
+  color: #fff;
+  background-color: #6495ed;
 }
 
 .paginationActive a {
+  color: #fff;
   background-color: #337ab7;
 }
 
 .paginationDisabled a {
   background-color: grey;
+  color: #fff;
 }

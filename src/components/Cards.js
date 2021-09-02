@@ -15,7 +15,7 @@ const Cards = ({
   issues,
 }) => {
   return (
-    <>
+    <div className="Cards_Container">
       <div className="Cards_Info">
         <Card className="Cards_Card">
           <Image src={avatar || matthew} wrapped ui={false} />
@@ -32,14 +32,17 @@ const Cards = ({
             extra
             style={{ display: "flex", justifyContent: "space-between" }}
           >
+            {/*eslint-disable-next-line */}
             <a>
               <Icon name="fork" />
               {forks || "0"}
             </a>
+            {/*eslint-disable-next-line */}
             <a>
               <Icon name="eye" />
               {watchers || "0"}
             </a>
+            {/*eslint-disable-next-line */}
             <a>
               <Icon name="language" />
               {language || "JavaScript"}
@@ -52,6 +55,7 @@ const Cards = ({
             </a>
           </Card.Content>
           <Card.Content extra>
+            {/*eslint-disable-next-line */}
             <a target="_blank" rel="noreferrer">
               <Icon name="exclamation circle" />총 {issues ? issues : 0}
               개의 이슈가 있습니다.
@@ -59,7 +63,7 @@ const Cards = ({
           </Card.Content>
         </Card>
       </div>
-    </>
+    </div>
   );
 };
 

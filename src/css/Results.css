@@ -26,11 +26,6 @@
   padding: 20px;
 }
 
-.Results_Introduce {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+.Results_Info {
+  margin-bottom: 20px;
 }

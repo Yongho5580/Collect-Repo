@@ -1,4 +1,29 @@
 .Home {
   height: 100vh;
   background-color: #0d1117;
+  overflow: auto;
+  color: #cad1d9;
+}
+
+.Home_Introduce {
+  display: flex;
+  justify-content: center;
+  padding: clamp(1rem, 1.5vw, 1.5rem);
+}
+
+.Home_Link {
+  padding: 20px;
+}
+
+.Home_Icon {
+  font-size: clamp(2rem, 2vw, 3rem);
+  color: #fff;
+
+  &:hover {
+    color: #81b29a;
+  }
+}
+
+.Home_Hello {
+  font-size: clamp(1.8rem, 2.5vw, 2.5rem);
 }

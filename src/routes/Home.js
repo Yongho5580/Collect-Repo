@@ -7,9 +7,14 @@ import { TiShoppingCart } from "react-icons/ti";
 const Home = () => {
   return (
     <div className="Home">
-      <Link to="/collection">
-        <TiShoppingCart />
-      </Link>
+      <div className="Home_Link">
+        <Link to="/collection">
+          <TiShoppingCart className="Home_Icon" />
+        </Link>
+      </div>
+      <div className="Home_Introduce">
+        <h2 className="Home_Hello">Welcome to Pick! Repositories</h2>
+      </div>
       <Search />
     </div>
   );
