@@ -106,7 +106,7 @@ const Collections = () => {
         <Modal
           reposName={reposName}
           issueId={issueId}
-          showModal={showModal}
+          showmodal={+showModal}
           setShowModal={setShowModal}
         />
       ) : null}

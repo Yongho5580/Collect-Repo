@@ -5,7 +5,7 @@ import Pagination from "../components/Pagination";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const Modal = ({ issueId, reposName, showModal, setShowModal }) => {
+const Modal = ({ issueId, reposName, showmodal, setShowModal }) => {
   useEffect(() => {
     AOS.init();
   });
@@ -22,12 +22,12 @@ const Modal = ({ issueId, reposName, showModal, setShowModal }) => {
 
   return (
     <>
-      {showModal ? (
+      {showmodal ? (
         <div className="Modal">
           <div
             data-aos="zoom-in"
             className="Modal_Wrapper"
-            showModal={showModal}
+            showmodal={showmodal}
           >
             <div className="Modal_Content">
               <Pagination data={getIssues[0][1].data} reposName={reposName} />
