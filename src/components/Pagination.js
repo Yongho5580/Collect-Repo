@@ -3,7 +3,7 @@ import ReactPaginate from "react-paginate";
 import "../css/Pagination.css";
 import { VscIssueClosed, VscIssues } from "react-icons/vsc";
 
-const Pagination = ({ data }) => {
+const Pagination = ({ data, reposName }) => {
   const [pageNumber, setPageNumber] = useState(0);
 
   const usersPerPage = 5;
@@ -14,30 +14,33 @@ const Pagination = ({ data }) => {
     .map((el) => {
       return (
         <div className="Issue" key={el.id}>
-          {el.state === "open" ? (
-            <span className="Issue_State">
-              <VscIssues style={{ color: "green" }} />
-            </span>
-          ) : (
-            <span className="Issue_State">
-              <VscIssueClosed style={{ color: "red" }} />
-            </span>
-          )}
-          <a
-            className="Issue_Anchor"
-            href={el.html_url}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {el.title}
-          </a>
+          <div className="Issue_FirstLine">
+            {el.state === "open" ? (
+              <span className="Issue_State">
+                <VscIssues style={{ color: "green" }} />
+              </span>
+            ) : (
+              <span className="Issue_State">
+                <VscIssueClosed style={{ color: "red" }} />
+              </span>
+            )}
+            <a
+              className="Issue_Anchor"
+              href={el.html_url}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {el.title}
+            </a>
+          </div>
           <div className="Issue_UserInfo">
             <img
               className="Issue_UserImg"
               src={el.user.avatar_url}
               alt="user"
             />
-            <div className="Issue_UserName">{el.user.login}</div>
+            <div className="Issue_UserName">&nbsp; {el.user.login}</div>
+            <div className="Issue_ReposName">&nbsp; ({reposName})</div>
           </div>
         </div>
       );

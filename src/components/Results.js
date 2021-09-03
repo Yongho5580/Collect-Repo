@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Button } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 import "../css/Results.css";
@@ -7,9 +7,6 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const Results = ({ repos, issues, isLoading }) => {
-  // 상위컴포넌트에서 input에 타이핑할 시 자식컴포넌트가 한 글자당 렌더링되는걸 확인.
-  // React.memo를 사용함으로써 리렌더링 방지했음.
-
   useEffect(() => {
     AOS.init();
   });
@@ -34,7 +31,7 @@ const Results = ({ repos, issues, isLoading }) => {
         window.confirm("중복되는 레포지토리가 있습니다.");
         return;
       }
-      // 로컬스토리지에 추가
+      // 레포지토리와 이슈를 합친 뒤 로컬스토리지에 추가
       const concat = repos.concat(issues);
       arr.push(concat);
       localStorage.setItem("repos", JSON.stringify(arr));
@@ -88,4 +85,4 @@ const Results = ({ repos, issues, isLoading }) => {
   );
 };
 
-export default memo(Results);
+export default Results;

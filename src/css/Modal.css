@@ -26,15 +26,22 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 800px;
-  height: 500px;
+  width: 1000px;
+  height: 700px;
   -webkit-box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
           box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
-  background: #fff;
+  background: #f6f8fa;
   color: #000;
   position: relative;
   z-index: 10;
   border-radius: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .Modal_Wrapper {
+    width: 95%;
+    height: 60%;
+  }
 }
 
 .Modal_Content {

@@ -5,9 +5,9 @@ import "semantic-ui-css/semantic.min.css";
 import "../css/Search.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
-const SearchBar = () => {
-  const [repoInput, setRepoInput] = useState("");
+const Search = () => {
   const [nameInput, setNameInput] = useState("");
+  const [repoInput, setRepoInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [repos, setRepos] = useState([]);
 
@@ -15,15 +15,15 @@ const SearchBar = () => {
     AOS.init();
   });
 
-  // 유저명 입력 받아오는 event
   const onNameChange = (e) => {
     setNameInput(e.target.value);
   };
-  // 레포지토리명 입력 받아오는 event
+
   const onRepoChange = (e) => {
     setRepoInput(e.target.value);
   };
 
+  // 검색 버튼 누를 시 해당 user의 repository, issue를 한 번에 받아와 state에 저장하는 함수
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -52,9 +52,9 @@ const SearchBar = () => {
         return;
       }
     }
-    // 비동기 과정이 모두 끝나면 loading이 되게 하는 state
-    setRepoInput("");
+    // 비동기 과정이 모두 끝나면 input을 초기화하고 loading이 되게 하는 state
     setNameInput("");
+    setRepoInput("");
     setIsLoading(true);
   };
 
@@ -100,26 +100,4 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar;
-
-/*
- <form onSubmit={onSubmit}>
-            <input
-              className="Search_NameInput"
-              type="text"
-              placeholder="유저이름"
-              onChange={onNameChange}
-              value={nameInput}
-              required
-            />
-            <input
-              className="Search_RepoInput"
-              type="text"
-              placeholder="레포지토리"
-              onChange={onRepoChange}
-              value={repoInput}
-              required
-            />
-            <input type="submit" value="검색"></input>
-          </form>
-*/
+export default Search;

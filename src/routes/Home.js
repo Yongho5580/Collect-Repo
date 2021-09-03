@@ -19,7 +19,11 @@ const Home = () => {
         </Link>
       </div>
       <div className="Home_Introduce">
-        <h2 data-aos="fade-down" data-aos-duration={700} className="Home_Hello">
+        <h2
+          data-aos="fade-down"
+          data-aos-duration={1000}
+          className="Home_Hello"
+        >
           Welcome to Pick! Repositories
         </h2>
       </div>

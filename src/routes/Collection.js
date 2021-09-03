@@ -14,6 +14,7 @@ const Collections = () => {
   const [update, setUpdate] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [issueId, setIssueId] = useState();
+  const [reposName, setReposName] = useState("");
 
   useEffect(() => {
     AOS.init();
@@ -27,6 +28,8 @@ const Collections = () => {
 
   const openModal = (e) => {
     const cardId = e.target.id;
+    const cardName = e.target.name;
+    setReposName(cardName);
     setIssueId(cardId);
     setShowModal((prev) => !prev);
   };
@@ -47,11 +50,13 @@ const Collections = () => {
     }
   };
 
-  console.log(getRepos);
-
   return (
     <div className="Collections">
-      <div className="Collections_Link">
+      <div
+        data-aos="fade-right"
+        data-aos-duration={700}
+        className="Collections_Link"
+      >
         <Link to="/">
           <AiOutlineHome className="Collections_Icon" />
         </Link>
@@ -78,7 +83,11 @@ const Collections = () => {
                     issues={repos[0].open_issues}
                   />
                   <div className="Collections_Btns">
-                    <Button id={repos[0].id} onClick={openModal}>
+                    <Button
+                      id={repos[0].id}
+                      name={repos[0].name}
+                      onClick={openModal}
+                    >
                       이슈보기
                     </Button>
                     <Button id={repos[0].id} onClick={onDeleteClick} negative>
@@ -95,6 +104,7 @@ const Collections = () => {
       </div>
       {getRepos ? (
         <Modal
+          reposName={reposName}
           issueId={issueId}
           showModal={showModal}
           setShowModal={setShowModal}
