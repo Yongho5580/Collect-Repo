@@ -30,6 +30,10 @@
   margin: 0 0.1em 0 7px;
   background-color: #0d1117;
   text-align: center;
+
+  @media screen and (max-width: 768px) {
+    font-family: sans-serif;
+  }
 }
 
 .Search_RepoInput {
@@ -45,6 +49,9 @@
   margin: 0 0.1em 0 7px;
   background-color: #0d1117;
   text-align: center;
+  @media screen and (max-width: 768px) {
+    font-family: sans-serif;
+  }
 }
 
 .Search_Submit {

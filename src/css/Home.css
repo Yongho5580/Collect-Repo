@@ -1,9 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 .Home {
-  height: 100vh;
   background-color: #0d1117;
   overflow: auto;
   color: #cad1d9;
+  width: 100vw;
+  height: 100vh;
 }
 
 .Home_Introduce {
@@ -31,5 +32,5 @@
 
 .Home_Hello {
   font-family: "Roboto", sans-serif;
-  font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
 }
